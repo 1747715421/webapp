@@ -1,0 +1,55 @@
+/*公共样式部分*/
+.marbt15{margin-bottom: 15px;}
+.dispany{display: block;}
+/*公共样式部分*/
+
+/*分页右浮动*/
+.pagination{float:right;}
+
+/*容器高度*/
+.section-body{height: 700px;}
+
+
+.logoimg{border:1px solid red;width:200px;height: 36px;}
+#section1-new{padding: 0;}
+/*logo超链接*/
+
+/*个人信息样式*/
+.infobox{;height: 145px;padding-top: 10px;}
+.infobox .inbox-item {color: rgb(255,255,255);margin-bottom: 15px;}
+.mt10{margin-top: 0px;margin-bottom: 10px;}
+.mt10 a{color:white;}
+/*右边栏*/
+ .nav3{display: flex;margin-bottom: 15px;}
+ .nav3 a{flex: 1;text-align: center;color:white;}
+ /*上传窗口*/
+.newupload-game-1{}
+.uploadbtn{border:none;background-color: #0092EF;text-align: center;width: 100%;height: 60px;border-radius: 4px;color:white;font-size: 16px;}
+.newupload-game-1-item{background-color: #00BBEE;height: 110px;padding-top: 10px;}
+.newupload-game-1-item-icon img{height:90px; width: 90px;}
+.newupload-game-1-item-detail span{display: block;}
+
+/*下载窗口*/
+.newdownload-game-1-item{background-color: #00BBEE;height: 110px;padding-top: 10px;border-radius: 4px;}
+.newdownload-game-1-item-icon img{height:90px; width: 90px;border-radius: 4px;}
+.newdownload-game-1-item-detail span{display: block;}
+
+/*点评窗口*/
+.reting{padding-left: 50px;margin-top: 5px;}
+.newreting-game-1-item{background-color: #00BBEE;height: 110px;padding-top: 10px;border-radius: 4px;border-radius: 4px;}
+.newreting-game-1-item-icon img{height:90px; width: 90px;border-radius: 4px;border-radius: 4px;}
+.newreting-game-1-item-detail span{display: block;}
+
+/*审核窗口*/
+.nav4-box{ width: 100%;border-radius: 4px;}
+.nav4-box a{cursor: pointer;}
+.nav4-box .top{height: 40px;line-height: 40px;border-radius: 4px;}
+.nav4-box .nav4-box-tab{display: none;}
+/*审核窗口详情*/
+.no-examine{clear: both;line-height: 63px;height: 65px;margin-bottom: 10px;border-bottom: 1px solid #CCCCCC;padding-left: 0px;}
+.no-examine img{height: 60px;width: 60px;float: left;border-radius: 4px;}
+
+
+
+/*弹出样式*/
+.dialog{z-index:1500;position: absolute;top:0;left:0;width: 100%;height:1100px;background-color: rgba(15,15,15,0.8);display: none;}

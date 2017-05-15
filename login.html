@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<style type="text/css">
+			body{
+				background: url("img/login_bg.jpg") no-repeat;
+				background-size: cover;
+			}
+			section{
+				color: #c6d4df;
+			}
+			.title{text-align: center;}
+			section h1{
+			}
+			section .form-cont{
+				width: 360px;
+				position: absolute;
+				right: 30px;
+				top: 50px;
+				padding: 10px 0;
+				background:rgba(0,0,0,0.3);
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				/*background:#12354b;*/
+				overflow:hidden;
+			}
+			section .form-cont .col-lg-12{
+				border-bottom: 1px solid gray;
+				padding:15px 0;
+			}
+			section .form-cont .col-lg-12 span{
+				color: red;
+			}
+			section .form-cont .col-lg-12.no-border{
+				padding-bottom: 0;
+			}
+			section p{
+				line-height: 24px;
+			}
+			section input{
+				height: 40px;
+				outline: none;
+				color: white;
+				width: 222px;
+				border-radius: 3px;
+				background:rgba(0,0,0,0.3);
+				border: none;
+				padding: 5px 10px;
+				box-shadow: 0 0 2px 0 white inset;
+			}
+			section .submit{
+				width:90px;
+				padding:8px;
+				cursor: pointer;
+				height: 40px;
+				transition:background-color,0.4s;
+				background-color: rgb(36, 34, 33);
+			}
+			section .submit:hover{
+
+				background-color: rgb(75, 73, 72);
+			}
+			.errorInfo{
+				opacity:  0;
+				color: #ff0000;
+			}
+			.linkToReg{
+				color: #fff;
+				position: relative;
+				right: -150px;
+				bottom: -21px;
+				font-size: 12px;
+				transition:color,0.2s;
+			}
+			.linkToReg:hover{
+				color: #2c8bb7;
+
+			}
+			.login-logo{
+				width: 187.8px;
+				height: 37.1px;
+				float: right;
+				margin-right: 50px;
+				margin-top: 35px;
+			}
+			form {
+				width: 222px;
+				margin: 0 auto;
+			}
+			.left-title {
+				position: absolute;
+				top: 25px;
+			}
+			.left-title img {
+				width: 600px;
+			}
+
+			:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+				color: #ccc; opacity:1;
+			}
+
+			::-moz-placeholder { /* Mozilla Firefox 19+ */
+				color: #ccc;opacity:1;
+			}
+
+			input:-ms-input-placeholder{
+				color: #ccc;opacity:1;
+			}
+
+			input::-webkit-input-placeholder{
+				color: #ccc;opacity:1;
+			}
+			.loginbox{text-align: center;}
+
+		</style>
+	</head>
+	<body>
+		<section class="container-fluid mt20">
+			<div class="container">
+				<div class="row">
+				<img src="img/nav_logo.png" class="login-logo">
+					<div class="left-title">
+						<img src="img/login_title.png">
+					</div>
+					<div class="col-lg-12">
+						<div class="form-cont">
+							<form action="" method="post">
+								<div class="col-lg-12 no-border">
+									<div class="title">
+									<h3>登录</h3>
+									</div>
+								</div>
+								<div class="col-lg-12">
+									<input type="text" switch='true' name="userName" id="userName" value="" placeholder="游戏平台账户名称"/>
+
+								</div>
+								<div class="col-lg-12 no-border">
+									<input type="password" switch='true' name="password" id="password" value="" placeholder="密码"/>
+								</div>
+								<div class="col-lg-12 no-border">
+									<div class="loginbox"><input type="button" class="submit" switch='true' value="登录" id="login"/></div>
+									<a href="register.html" class="linkToReg">还没有账户？立即注册</a>
+									<p id="errorInfo" class="errorInfo">&nbsp;</p>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+	<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./admin/assets/js/cookie.js"></script>
+	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/layer/layer.js"></script>
+	<script type="text/javascript" src="js/login.js"></script>
+	<script>
+		$(function(){
+			$("#userName").on("blur",function(){
+				login.inputVerify("userName", "用户名不能为空");
+			});
+			$("#password").on("blur",function(){
+				login.inputVerify("password", "密码不能为空");
+			});
+			$("#login").on("click",function(){
+				login.submitVerify();
+			});
+		});
+		console.log(document.cookie);
+		$('body').css('height',$(window).height());
+	</script>
+</html>

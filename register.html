@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="css/base.css"/>
+	<link rel="stylesheet" type="text/css" href="css/public.css"/>
+	<link rel="stylesheet" type="text/css" href="css/header.css"/>
+	<style type="text/css">
+		body{
+			background: url("img/login_bg.jpg") no-repeat;
+			background-size: cover;
+		}
+		.title{text-align: center;}
+		section{
+			color: #c6d4df;
+		}
+		section h1{
+		}
+		section .form-cont{
+			width: 360px;
+			position: absolute;
+			right: 30px;
+			top: 50px;
+			padding: 10px 0;
+			background:rgba(0,0,0,0.3);
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			/*background:#12354b;*/
+			overflow:hidden;
+		}
+		section .form-cont .col-lg-12{
+
+			padding:12px 0;
+		}
+		section .form-cont .col-lg-12 span{
+			color: red;
+		}
+		section .form-cont .col-lg-12.no-border{
+			padding-bottom: 0;
+		}
+		section p{
+			line-height: 24px;
+		}
+		section input{
+			height: 40px;
+			outline: none;
+			color: white;
+			width: 222px;
+			border-radius: 3px;
+			background:rgba(0,0,0,0.3);
+			border: none;
+			padding: 5px 10px;
+			box-shadow: 0 0 2px 0 white inset;
+		}
+		section .submit{
+
+			padding:8px;
+			cursor: pointer;
+			transition:background-color,0.4s;
+			width: 90px;
+			height: 40px;
+			background-color: rgb(36, 34, 33);
+
+		}
+		section .submit:hover{
+			background-color: rgb(75, 73, 72);
+
+		}
+		.errorInfo{
+			opacity:  0;
+			color: #ff0000;
+		}
+		.linkToReg{
+			color: #fff;
+			position: relative;
+			right: -150px;
+			bottom: -20px;
+			font-size: 12px;
+			transition:color,0.2s;
+		}
+		.linkToReg:hover{
+			color: #2c8bb7;
+
+		}
+		.login-logo{
+			width: 187.8px;
+			height: 37.1px;
+			float: right;
+			margin-right: 50px;
+			margin-top: 35px;
+		}
+		form {
+			width: 222px;
+			margin: 0 auto;
+		}
+		.left-title {
+			position: absolute;
+			top: 25px;
+		}
+		.left-title img {
+			width: 600px;
+		}
+
+		:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+			color: #ccc; opacity:1;
+		}
+
+		::-moz-placeholder { /* Mozilla Firefox 19+ */
+			color: #ccc;opacity:1;
+		}
+
+		input:-ms-input-placeholder{
+			color: #ccc;opacity:1;
+		}
+
+		input::-webkit-input-placeholder{
+			color: #ccc;opacity:1;
+		}
+		.first{width: 60px;height: 60px;border:1px solid lightgrey;margin: 0 auto;border-radius: 60px;overflow: hidden;}
+		.first img{width: 60px;height: 60px;}
+		.fileinput{width: 60px;overflow: hidden;height: 30px;margin: 0 auto;margin-top: 10px;margin-bottom: -20px;border-radius: 4px;}
+		.file[type="file"]{
+			margin-left: -13px;
+			border: none;
+			background-color: #999;
+			height: 26px;
+			margin-top: -5px;
+		}
+		.loginbox{text-align: center;}
+		.radiobox{padding-left: 50px;margin-top: -5px;margin-bottom: -10px;}
+		.radiobox-1{margin: 0 auto;line-height: 15px;}
+		.radiobox-1 lable{margin-right: 15px;color:#C6D4DF;}
+		.radiobtn{height: 15px;width: 15px;border:0px;box-shadow:none;}
+
+	</style>
+</head>
+<body>
+<section class="container-fluid mt20">
+	<div class="container">
+		<div class="row">
+			<img src="img/nav_logo.png" class="login-logo">
+			<div class="left-title">
+				<img src="img/login_title.png">
+			</div>
+
+			<div class="col-lg-12">
+
+				<div class="form-cont">
+					<form action="" method="post">
+						<div class="col-lg-12 no-border title">
+							<h3>注册</h3>
+						</div>
+						<div class="col-lg-12">
+						<div class="first" id="avatarimg">
+                           <img  id="touxiang">
+						</div>
+							<div class="fileinput">
+								<input type="file" switch='true' name="avatar" id="avatar" value="" placeholder="请选择头像" class="file"/>
+
+							</div>
+			         	</div>
+
+						<div class="col-lg-12 no-border">
+							<input type="text" switch='true' name="userName" id="userName" value="" placeholder="用户名"/>
+						</div>
+
+						<div class="col-lg-12 no-border">
+							<input type="password" switch='true' name="password" id="password" value="" placeholder="密码"/>
+						</div>
+						<div class="col-lg-12 no-border">
+							<input type="re_password" switch='true' name="re_password" id="re_password" value="" placeholder="重复密码"/>
+						</div>
+
+						<div class="col-lg-12 no-border ">
+
+							<input type="email" switch='true' name="email" id="email" value="" placeholder="邮箱"/>
+
+						</div>
+						<div class="col-lg-12 no-border radiobox">
+							<div class="radiobox-1">
+								<lable>性别:</lable><input type="radio" class="radiobtn">男 <input type="radio" class="radiobtn">女
+							</div>
+
+						<div class="col-lg-12 no-border">
+							<div class="loginbox">
+							<input type="button" class="submit" switch='true' value="注册" id="register" /></div>
+							<a href="login.html" class="linkToReg">已经有账户？立即登录</a>
+					     	</div>
+							<p id="errorInfo" class="errorInfo">&nbsp;</p>
+						</div>
+					</form>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="./admin/assets/js/cookie.js"></script>
+<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.js"></script>
+<script type="text/javascript" src="js/register.js"></script>
+<script>
+    function getObjectURL(file){
+        var url = null;
+        if(window.createObjectURL!=undefined){
+            url = window.createObjectURL(file);
+        }else if(window.URL !=undefined){
+            url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) {
+            url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+    }
+    $(function(){
+        $("#userName").on("blur",function(){
+            login.inputVerify("userName", "用户名不能为空");
+        });
+        $("#password").on("blur",function(){
+            login.inputVerify("password", "密码不能为空");
+        });
+        $("#re_password").on("blur",function(){
+            login.inputVerify("re_password", "密码不能为空");
+        });
+
+        $("#login").on("click",function(){
+            login.submitVerify();
+        });
+
+        $("#avatar").change(function(){
+            var objUrl = getObjectURL(this.files[0]);
+            console.log("objUrl = "+objUrl);
+            if(objUrl){
+                $("#touxiang").attr("src",objUrl);
+            }
+        });
+
+
+    });
+
+
+
+
+
+
+    console.log(document.cookie);
+    $('body').css('height',$(window).height());
+
+
+</script>
+</html>

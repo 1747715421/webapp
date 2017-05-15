@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/header.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/userInfo.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/imgUpload.css"/>
+    <style type="text/css">
+        .img-cont img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .bg-2e3472 {
+            background: #2e3472;
+        }
+
+        .section-photo .row {
+            padding: 30px 0px 100px 0px;
+            background: url(../img/phto_bg.png) no-repeat no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .section-photo .row .img-cont {
+            width: 145px;
+            height: 145px;
+            border: 5px solid #9aa0d6;
+            background: #9aa0d6;
+            margin: auto;
+        }
+
+        .section-photo .row .img-cont img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .section-photo .row .user-name {
+            width: 300px;
+            margin: auto;
+            color: white;
+        }
+
+        .section-photo .row .user-name .name {
+            margin-left: 29px;
+            font-size: 3rem;
+        }
+
+        .section-body .about-me .top {
+            padding: 5px 0px;
+        }
+
+        .section-body .about-me .top a {
+            display: inline-block;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            padding: 0px 30px;
+            position: relative;
+        }
+
+        .section-body .about-me .top a:after {
+            content: '';
+            height: 70%;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.6);
+            position: absolute;
+            top: 8px;
+            right: 0px;
+        }
+
+        .section-body .about-me .top a:last-child:after {
+            height: 0px;
+        }
+
+        .section-body .about-me .top a p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+        }
+
+        .section-body .about-me .user {
+            width: 100%;
+            color: #FFFFFF;
+        }
+
+        .section-body .about-me .user .cont {
+            box-sizing: border-box;
+            padding: 15px;
+        }
+
+        .section-body .about-me .user .cont span {
+            background: #dc6d1e;
+            padding: 2px 5px;
+        }
+
+        .section-body .about-me .user .img-cont {
+            width: 70px;
+            height: 70px;
+            margin-right: 20px;
+        }
+
+        .section-body .about-me .user a {
+            display: block;
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            color: #FFFFFF;
+            border-top: 1px solid #FFFFFF;
+            text-decoration: none;
+        }
+
+        .section-body .about-me .upload-game {
+            height: 70px;
+            width: 100%;
+            background: #70a934;
+            line-height: 70px;
+            text-align: center;
+            border: none;
+            font-size: 16px;
+            border-radius: 4px;
+            color: #FFFFFF;
+        }
+
+        .section-body .about-me .mygame h3 {
+            width: 100%;
+            height: 70px;
+            line-height: 70px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            border-bottom: 1px solid #FFFFFF;
+        }
+
+        .section-body .about-me .mygame .game-list {
+            width: 100%;
+            height: 185px;
+            box-sizing: border-box;
+            padding: 5px 0px;
+            overflow: hidden;
+        }
+
+        .section-body .about-me .mygame .game-list li {
+            float: left;
+            height: 50%;
+            width: 50%;
+            box-sizing: border-box;
+            padding: 2px;
+        }
+
+        .section-body .about-me .mygame .game-list li .img-cont {
+            width: 100%;
+            height: 100%;
+        }
+
+        .section-body .about-me .mygame a {
+            display: block;
+            width: 100%;
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid #FFFFFF;
+        }
+
+        .section-body .myfootprint {
+            color: #FFFFFF;
+            width: 100%;
+        }
+
+        .section-body .myfootprint .top {
+            height: 55px;
+            line-height: 55px;
+            padding: 0px 15px;
+        }
+
+        .section-body .myfootprint .content li {
+            margin-bottom: 10px;
+        }
+
+        .section-body .myfootprint .content .user {
+            padding: 10px;
+        }
+
+        .section-body .myfootprint .content .user .img-cont {
+            height: 50px;
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .section-body .myfootprint .content .user h3 {
+            line-height: 30px;
+            font-size: 18px;
+        }
+
+        .section-body .myfootprint .content .user em {
+            line-height: 20px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .section-body .myfootprint .content .game-info {
+            background: #5d6083;
+            padding: 15px 15px 0px 70px;
+        }
+
+        .section-body .myfootprint .content .game-info h3 {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .section-body .myfootprint .content .game-info .game-pic .fl {
+            width: 60%;
+            box-sizing: border-box;
+        }
+
+        .section-body .myfootprint .content .game-info .game-pic .fl:last-child {
+            width: 40%;
+            box-sizing: border-box;
+        }
+
+        .section-body .myfootprint .content .game-info .game-pic .fl.left .img-cont {
+            height: 200px;
+            padding-right: 5px;
+        }
+
+        .section-body .myfootprint .content .game-info .game-pic .fl .img-cont {
+            width: 100%;
+            height: 100px;
+            padding: 2px;
+        }
+
+        .section-body .myfootprint .content .game-info .game-about {
+            line-height: 40px;
+        }
+
+        .section-body .myfootprint .content .game-info .game-about em {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .section-body .myfootprint .content .game-info .game-about a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.6);
+            margin-right: 20px;
+
+        }
+
+        .section-body .myfootprint .content .contro {
+            line-height: 40px;
+        }
+
+        .section-body .myfootprint .content .contro a {
+            font-size: 15px;
+            color: #FFFFFF;
+            margin: 0px 30px;
+            text-decoration: none;
+        }
+
+        .section-body .edit-userinfo .top {
+            color: #FFFFFF;
+            font-size: 20px;
+            padding: 10px;
+        }
+
+        .section-body .edit-userinfo .top span {
+            display: inline-block;
+            width: 50%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.6);
+            position: relative;
+            top: -3px;
+            left: 0px;
+            margin: 0px 10px;
+        }
+
+        .section-body .edit-userinfo .top button {
+            border: none;
+            background: rgba(255, 255, 255, 0.6);
+            color: black;
+            font-size: 14px;
+            padding: 2px 5px;
+        }
+
+        .section-body .edit-userinfo .form {
+            color: rgba(255, 255, 255, 0.5);
+            padding: 50px 0px;
+        }
+
+        .section-body .edit-userinfo .form label {
+            width: 100px;
+            text-align: right;
+            margin-right: 40px;
+        }
+
+        .section-body .edit-userinfo .form input {
+            background: transparent;
+            border: none;
+        }
+
+        .section-body .edit-userinfo .form li {
+            margin-bottom: 15px;
+        }
+
+        .section-body .edit-userinfo .form a {
+            color: #5d881c;
+        }
+
+        .section-body .about-me .level-info {
+            width: 100%;
+        }
+
+        .section-body .about-me .level-info .cont {
+            box-sizing: border-box;
+            padding: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .section-body .about-me .level-info .cont:first-child {
+            border-bottom: 1px solid #FFFFFF;
+        }
+
+        .section-body .about-me .level-info .cont span {
+            background: #DC6D1E;
+            padding: 2px 5px;
+        }
+        .kong{height: 80px;}
+        .formdiv{width: 500px;margin: 0 auto;background: #9AA0D6;}
+        .upload-title{float: left;margin-left: 1px;color:white;font-size: 18px;}
+        .colse{float: right;font-size: 20px;color:white;cursor: pointer;}
+        .font0{color:white;height:40px;text-align: center; width: 149px; line-height: 40px;display: block;  }
+        .font{color:white;height:40px;text-align: center; width: 176px; line-height: 40px;display: block;  }
+        .tijiao{position: relative;z-index: 500;color:white;
+            top:29px;left: 174px;cursor: pointer;}
+    </style>
+</head>
+<body>
+<!--弹出-->
+<div class="dialog" id="dialog">
+<div>
+    <section class="container-fluid section-body">
+        <div class="row tab-nav ft20">
+            <div class="kong"></div>
+
+        </div>
+
+        <div class="row tab-item">
+
+            <div class="col-lg-12 active content">
+                <div style="background-color: #1c4367; margin-top: -10px;"> <span class="upload-title">上传新游戏</span><span class="colse" id="close">×</span></div>
+                <form title="添加商品" action="/player/uploadGame" method="post" enctype="multipart/form-data" class="formdiv">
+                    <div class="edit-upload row">
+                        <div class="clearfix">
+                            <p class="left">游戏名称：</p>
+                            <p class="right"><input type="text" maxlength="15" style="width:15rem;height:30px;background: #c7c9db; padding-left: 3px; border-radius:4px;border:none;outline:none;" placeholder="请输入游戏名称，15字以内" name="gameName" id="gameName"/></p>
+                        </div>
+                        <div class="clearfix">
+                            <p class="left">简述：</p>
+                            <p class="right"><textarea placeholder="请输入游戏简述，100字以内" maxlength="100" style="height:30px;padding-left: 3px; width:411px; border-radius:4px;height:10rem;background: #c7c9db;border:none;outline:none;" name="summary" id="summary"></textarea></p>
+                        </div>
+                        <div class="clearfix">
+                            <p class="left">版本：</p>
+                            <p class="right"><input type="text" maxlength="15" style="width:15rem;height:30px ;padding-left: 3px; ;background: #c7c9db; border-radius:4px;border:none;outline:none;" placeholder="请输入游戏版本" name="version" id="version"/></textarea></p>
+                        </div>
+                        <div class="clearfix">
+                            <p class="left">游戏入口：</p>
+                            <p class="right"><input type="text" maxlength="15" style="width:15rem;height:30px;padding-left: 3px; border-radius:4px;background: #c7c9db;border:none;outline:none;" placeholder="请输入游戏入口" name="indexName" id="indexName"/></textarea></p>
+                        </div>
+                        <div class="clearfix">
+                            <p class="left">分类：</p>
+                            <div class="right">
+                                <select  id="sort" style="width:15rem;background: #c7c9db;height:30px; border-radius:4px;" name="gameTypeId">
+
+                                </select>
+                            </div>
+                        </div>
+                        <input type="hidden" value="" name="token">
+                        <div class="clearfix box1">
+                            <div class="box1-1">
+                                <img id="preview4" alt=""/>
+                            </div>
+                            <div class="box1-2">
+                                <div class="sl-custom-file" >
+                                   <span class="font0">图标</span>
+                                    <input class="ui-input-file" type="file" name="icon" id="file4" value="上传图标" multiple="multiple"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix box1">
+                            <div class="box1-1">
+                                <img id="preview0" alt=""/>
+                            </div>
+                            <div class="box1-2">
+                                <div class="sl-custom-file" style="width:15rem;">
+                                    <span class="font">封面</span>
+                                    <input class="ui-input-file" type="file" name="screen" id="file0" value="上传封面" multiple="multiple"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="file" class="easyui-filebox" labelPosition="top" data-options="prompt:'请选择.zip格式的压缩文件'" style="width:100%;background: #c7c9db;" name="zip" id="zip"/>
+                        <span class="tijiao">提交审核</span>
+                        <input type="submit" value="提交审核" style=" border-radius:4px;width:100%;height:30px;line-height:30px;padding:.9rem;border:none;margin-top:.5rem;background: #2e3470;color: #9aa0d6;font-size:1.5rem;"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+
+
+</div>
+
+<!--弹出-->
+<section class="container-fluid section1" id="section0">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 section1-nav">
+                <ul class="fl-left menu-level-one">
+                    <li class="item-level-one" id="section1-new">
+                        <a href="../index.html">
+                            <img class="logoimg">
+                        </a>
+                        <!--<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                        <ul class="menu-level-two">
+                            <li>
+                                <a href="#">商店主页</a>
+                            </li>
+                            <li>
+                                <a href="#">最近查看过的</a>
+                            </li>
+                            <li>
+                                <a href="#">最近更新</a>
+                            </li>
+                        </ul>-->
+                    </li>
+                    <!--
+
+                    <li class="item-level-one">
+                            <a href="#">
+                                游戏
+                            </a>
+                            <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                            <ul class="menu-level-two">
+                                <li>
+                                    <a href="#">免费</a>
+                                </li>
+                                <li>
+                                    <a href="#">抢先体验</a>
+                                </li>
+                                <li>
+                                    <a href="#">试玩</a>
+                                </li>
+                                <p>按类型浏览：</p>
+                                <li>
+                                    <a href="#">休闲</a>
+                                </li>
+                                <li>
+                                    <a href="#">体育</a>
+                                </li>
+                                <li>
+                                    <a href="#">冒险</a>
+                                </li>
+                                <li>
+                                    <a href="#">动作</a>
+                                </li>
+                                <li>
+                                    <a href="#">大型多人在线</a>
+                                </li>
+                                <li>
+                                    <a href="#">模拟</a>
+                                </li>
+                                <li>
+                                    <a href="#">独立</a>
+                                </li>
+                                <li>
+                                    <a href="#">竞速</a>
+                                </li>
+                                <li>
+                                    <a href="#">策略</a>
+                                </li>
+                                <li>
+                                    <a href="#">角色扮演</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                校园动态
+                            </a>
+                        </li>
+                        <li>
+                            <a id="person" href="../login.html">
+                                个人中心
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="msg fl-right ml10" id="login-stauts">
+                        <a href="../login.html">登录</a>|<a href="../register.html">注册</a>
+                    </div>
+                    <div class="fl-right">
+                        <input type="text" name="" id="" value="" placeholder="搜索游戏" />
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container-fluid section-photo mt20">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="img-cont">
+                <img src="../img/phto.png"/>
+            </div>
+
+        </div>
+        <div class="col-lg-5">
+            <div class="infobox">
+                <div class="inbox-item">用户名: <span class="name">用户名</span></div>
+                <div class="inbox-item">性别: <span class="sex">女</span></div>
+                <div class="inbox-item">邮箱: <span class="email">1212313@qq.com</span></div>
+                <div class="inbox-item">积分： <span>1212</span> 分</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="container-fluid section-body mt20">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
+            <div class="about-me new-about-me">
+
+                <button class="upload-game mt10 t1" id="downloadbtn">
+                    <a href="#">
+                        下载游戏历史
+                    </a>
+                </button>
+                <button class="upload-game mt10 t1" id="retingbtn">
+                    <a href="#">
+                        评论历史
+                    </a>
+                </button>
+                <button class="upload-game mt10 t1" id="shenhebtn">
+                    <a href="#">
+                        上传历史
+                    </a>
+                </button>
+
+
+                <div class="level-info bg-2e3472 mt20 hide">
+                    <div class="cont">
+                        <h3 class="mb20">boom向卷卷</h3>
+                        <span>Lv.6</span>
+                    </div>
+                    <div class="cont">
+                        <p>当前等级：Lv.6</p>
+                        <p>当前积分：20</p>
+                        <p>当前排行：500</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-xs-8 col-sm-8">
+            <!--上传游戏窗口-->
+            <div class="myfootprint " id="item-1">
+
+                <div class="newupload-game">
+                    <div class="newupload-game-1">
+
+
+
+
+
+                        <!--分页-->
+
+                        <!--分页-->
+                    </div>
+                </div>
+            </div>
+            <!--上传游戏窗口-->
+
+            <!--下载游戏窗口-->
+            <div class="downloadbox " id="item-2">
+                <div class="newdownload-game-1-item marbt15">
+                    <div class="col-md-2">
+                        <div class="newdownload-game-1-item-icon"><img src="../admin/assets/images/gallery/thumb-1.jpg">
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="newdownload-game-1-item-detail">
+                            <span>游戏名称:</span>
+                            <span>游戏评分:</span>
+                            <span>下载次数:</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="newdownload-game-1-item marbt15">
+                    <div class="col-md-2">
+                        <div class="newdownload-game-1-item-icon"><img src="../admin/assets/images/gallery/thumb-1.jpg">
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="newdownload-game-1-item-detail">
+                            <span>游戏名称:</span>
+                            <span>游戏评分:</span>
+                            <span>下载次数:</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="newdownload-game-1-item marbt15">
+                    <div class="col-md-2">
+                        <div class="newdownload-game-1-item-icon"><img src="../admin/assets/images/gallery/thumb-1.jpg">
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="newdownload-game-1-item-detail">
+                            <span>游戏名称:</span>
+                            <span>游戏评分:</span>
+                            <span>下载次数:</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="newdownload-game-1-item marbt15">
+                    <div class="col-md-2">
+                        <div class="newdownload-game-1-item-icon"><img src="../admin/assets/images/gallery/thumb-1.jpg">
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="newdownload-game-1-item-detail">
+                            <span>游戏名称:</span>
+                            <span>游戏评分:</span>
+                            <span>下载次数:</span>
+                        </div>
+                    </div>
+                </div>
+                <!--分页-->
+                <nav aria-label="Page navigation right">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!--分页-->
+
+            </div>
+            <!--下载游戏窗口-->
+
+            <!--评论窗口-->
+            <div class="retingbox hide" id="item-3">
+                <div class="newreting-game-1-item marbt15">
+                    <div class="col-md-2">
+                        <div class="newreting-game-1-item-icon"><img src="../admin/assets/images/gallery/thumb-1.jpg">
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="newreting-game-1-item-detail">
+                            <span>游戏名称:</span>
+                            <span>评分:</span>
+                            <span>个人点评:</span>
+                            <span class="reting">水电费水电费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="newreting-game-1-item marbt15">
+                    <div class="col-md-2">
+                        <div class="newreting-game-1-item-icon"><img src="../admin/assets/images/gallery/thumb-1.jpg">
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="newreting-game-1-item-detail">
+                            <span>游戏名称:</span>
+                            <span>评分:</span>
+                            <span>个人点评:</span>
+                            <span class="reting">好玩得很</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--分页-->
+                <nav aria-label="Page navigation right">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!--分页-->
+
+            </div>
+            <!--评论窗口-->
+
+
+            <!--审核窗口-->
+            <div class="nav4-box hide" id="item-4">
+                <button class="uploadbtn marbt15" id="upbtn">上传游戏</button>
+
+                <div class="top bg-2e3472 nav3 marbt15">
+                    <a id="tab1">提交未审核</a>
+                    <a id="tab2">已经提交审核</a>
+                    <a id="tab3">审核未通过</a>
+                </div>
+                <div class="nav4-box-tab" id="tab-item1" style="display: block">
+                    <div class="no-examine">
+                        <div class="col-lg-2"><img src="../admin/assets/images/gallery/thumb-1.jpg"></div>
+                        <div class="col-lg-9">游戏名称</div>
+                    </div>
+                    <div class="no-examine">
+                        <div class="col-lg-2"><img src="../admin/assets/images/gallery/thumb-1.jpg"></div>
+                        <div class="col-lg-9">游戏名称</div>
+                    </div>
+                    <div class="no-examine">
+                        <div class="col-lg-2"><img src="../admin/assets/images/gallery/thumb-1.jpg"></div>
+                        <div class="col-lg-9">游戏名称</div>
+                    </div>
+                    <div class="no-examine">
+                        <div class="col-lg-2"><img src="../admin/assets/images/gallery/thumb-1.jpg"></div>
+                        <div class="col-lg-9">游戏名称</div>
+                    </div>
+                    <div class="no-examine">
+                        <div class="col-lg-2"><img src="../admin/assets/images/gallery/thumb-1.jpg"></div>
+                        <div class="col-lg-9">游戏名称</div>
+                    </div>
+                    <!--分页-->
+                    <nav aria-label="Page navigation right">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!--分页-->
+                </div>
+                <div class="nav4-box-tab " id="tab-item2">已经提交审核
+                    <div class="pass"></div>
+                </div>
+                <div class="nav4-box-tab" id="tab-item3">审核未通过
+                    <div class="nopass"></div>
+                </div>
+            </div>
+
+            <!--审核窗口-->
+
+
+            <div class="edit-userinfo bg-2e3472 hide">
+                <div class="top">
+                    <em>个人信息</em>
+                    <span class="line"></span>
+                    <button>编辑</button>
+                </div>
+                <ul class="form">
+                    <li>
+                        <label>用户名</label>
+                        <input disabled="disabled" type="text" name="" id="" value="boom向卷卷"/>
+                        <a href="#">修改密码</a>
+                    </li>
+                    <li>
+                        <label>性别</label>
+                        <input disabled="disabled" type="text" name="" id="" value="女"/>
+                        <!--<input type="radio" name="sex" id="boy" />男
+                        <input checked="checked" type="radio" name="sex" id="girl" />女-->
+                    </li>
+                    <li>
+                        <label>邮箱</label>
+                        <input disabled="disabled" type="text" name="" id="" value="980868500@qq.com"/>
+                    </li>
+                    <li>
+                        <label>微信号</label>
+                        <input disabled="disabled" type="text" name="" id="" value="xj980868500"/>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+<script src="../js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../admin/assets/js/cookie.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/imgUpload.js"></script>
+<script src="../js/userInfo.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $('#beginedit').on('click', function () {
+        $('.about-me .t1').addClass('hide');
+        $('.about-me .level-info').removeClass('hide');
+        $('.myfootprint').addClass('hide');
+        $('.edit-userinfo').removeClass('hide');
+    });
+    console.log(getCookie('userId'));
+    $.ajax({
+        type: "get",
+        url: "/player/getUser",
+        async: true,
+        data: {
+            "id": getCookie('userId')
+        },
+        success: function (result) {
+            console.log(result);
+            if (result.status) {
+
+            } else {
+            }
+        }
+    });
+    $('#close').on('click',function () {
+        $("#dialog").fadeOut();
+    });
+
+
+    $(function () {
+
+        //获取游戏类型
+        $.ajax({
+            type : "get",
+            url : "/game/listGameType",
+            success : function(result) {
+                var html='';
+                for(var i = 0;i<result.length;i++){
+                    var gameTypeId = result[i].id;
+                    html+=('<option value="'+result[i].id+'" id="gameTypeId" >'+result[i].name+'</option>');
+                }
+                $('#sort').html(html);
+                if ( result.status ) {
+
+                }
+            }
+        });
+        $(".l-btn-text").text("点击上传游戏文件");
+        $("input:hidden").val(getCookie("userToken"));
+    });
+
+
+
+</script>
+</html>
